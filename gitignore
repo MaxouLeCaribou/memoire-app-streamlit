@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit cache
+.streamlit/
+
+# Données / index lourds
+chroma_index*/
+tmp/
+*.pptx
+
+# Config locales / secrets
+config/
+config_user.json
+app_config.json
+
+# Logs
+*.log
