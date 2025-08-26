@@ -5,6 +5,14 @@ import chromadb
 import fitz  # PyMuPDF
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+# --- Shim sqlite for Chroma on Streamlit Cloud ---
+import sys
+import pysqlite3
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+# -------------------------------------------------
+
+import chromadb
+
 
 # --- FOND ÉCRAN via base64 (fiable) ---
 import base64, mimetypes
