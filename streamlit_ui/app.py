@@ -1,15 +1,20 @@
-# app.py — Recherche simple (TF‑IDF) avec 2 corpus: Mémoires / Attestations
-import os, sys, io, subprocess, time, re, json
+# --- Shim sqlite for Chroma on Streamlit Cloud (METTRE CECI EN LIGNE 1) ---
+import sys
+try:
+    import pysqlite3  # installé via pysqlite3-binary dans requirements.txt
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+except Exception:
+    pass
+# ---------------------------------------------------------------------------
+
+# ensuite seulement, tes imports
+import os, sys as _sys, io, subprocess, time, re, json
 import streamlit as st
 import chromadb
 import fitz  # PyMuPDF
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-# --- Shim sqlite for Chroma on Streamlit Cloud ---
-import sys
-import pysqlite3
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
-# -------------------------------------------------
+
 
 import chromadb
 
